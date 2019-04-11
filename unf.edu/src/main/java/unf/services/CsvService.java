@@ -64,25 +64,29 @@ public class CsvService extends BaseService {
                         String providerId = "PID" + csvRecord.get(1);
                         String providerRegionDescription = "RID" + csvRecord.get(7).replaceAll(" ", "").replaceAll("-", "");
                         String totalDischarges = csvRecord.get(8);
-                        String averageCoveredPayments = csvRecord.get(9);
+                        String averageCoveredPayments = csvRecord.get(9).replaceAll(",", "");
                         String averageTotalPayments = csvRecord.get(10);
                         String averageMedicarePayments = csvRecord.get(11);
 
+                        int roundedCovered = ((Integer.parseInt(averageCoveredPayments.replaceAll(",", "").split("\\.")[0]) + 99) / 100 ) * 100;
+                        int roundedTotal = ((Integer.parseInt(averageTotalPayments.replaceAll(",", "").split("\\.")[0]) + 99) / 100 ) * 100;
+                        int roundedCms = ((Integer.parseInt(averageMedicarePayments.replaceAll(",", "").split("\\.")[0]) + 99) / 100 ) * 100;
+
                         if (map.get(labelOne) < 11) {
-                            csvTrainingSetPrinter.printRecord(labelOne, providerId, providerRegionDescription, totalDischarges, averageCoveredPayments, averageTotalPayments, averageMedicarePayments);
+                            csvTrainingSetPrinter.printRecord(labelOne, providerId, providerRegionDescription, totalDischarges, roundedCovered, roundedTotal, roundedCms);
                         }
 
-                        if (map.get(labelOne) < 101) {
-                            csvTestSetPrinter.printRecord(labelOne, providerId, providerRegionDescription, totalDischarges, averageCoveredPayments, averageTotalPayments, averageMedicarePayments);
+                        if (map.get(labelOne)  > 11 && map.get(labelOne) < 101) {
+                            csvTestSetPrinter.printRecord(labelOne, providerId, providerRegionDescription, totalDischarges, roundedCovered, roundedTotal, roundedCms);
                         }
 
-                        csvPrinter.printRecord(labelOne, providerId, providerRegionDescription, totalDischarges, averageCoveredPayments, averageTotalPayments, averageMedicarePayments);
+                        csvPrinter.printRecord(labelOne, providerId, providerRegionDescription, totalDischarges, roundedCovered, roundedTotal, roundedCms);
 
                     }
                     csvPrinter.flush();
                 }
 
-            } catch (IOException e1) {
+            } catch (Exception e1) {
                 e1.printStackTrace();
             }
 
@@ -94,7 +98,7 @@ public class CsvService extends BaseService {
             System.out.print("\rCalculating..." + (hrm++ % 2 == 0 ? "\\" : "/"));
             Thread.sleep(200);
         }
-
+        System.out.print("\nDone!");
 
     }
 
