@@ -55,15 +55,15 @@ public class CsvService extends BaseService {
                 ) {
                     for (CSVRecord csvRecord : parser) {
                         String drgDescription = csvRecord.get(0);
-                        String labelOne = drgDescription.split(" ")[0];
+                        String labelOne = "DRG" + drgDescription.split(" ")[0];
 
                         if (!map.containsKey(labelOne)) {
                             map.put(labelOne, 0);
                         }
                         map.replace(labelOne, map.get(labelOne) + 1);
 
-                        String providerId = csvRecord.get(1);
-                        String providerRegionDescription = csvRecord.get(7).replaceAll(" ", "").replaceAll("-", "");
+                        String providerId = "PID" + csvRecord.get(1);
+                        String providerRegionDescription = "RID" + csvRecord.get(7).replaceAll(" ", "").replaceAll("-", "");
                         String totalDischarges = csvRecord.get(8);
                         String averageCoveredPayments = csvRecord.get(9);
                         String averageTotalPayments = csvRecord.get(10);
