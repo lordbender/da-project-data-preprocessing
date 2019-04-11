@@ -1,0 +1,1 @@
+java -Xmx8192m -jar ~/weka-3-8-3/weka.jar

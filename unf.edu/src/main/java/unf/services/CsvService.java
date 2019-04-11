@@ -54,17 +54,6 @@ public class CsvService extends BaseService {
                         String averageTotalPayments = csvRecord.get(10);
                         String averageMedicarePayments = csvRecord.get(11);
 
-                        //Average Covered Charges , Average Total Payments ,Average Medicare Payments
-                        // labels
-//                        System.out.println(labelOne);
-//                        System.out.println(providerId);
-//                        System.out.println(providerRegionDescription);
-//                        System.out.println(totalDischarges);
-//                        System.out.println(averageCoveredPayments);
-//                        System.out.println(averageTotalPayments);
-//                        System.out.println(averageMedicarePayments);
-
-
                         csvPrinter.printRecord(labelOne, providerId, providerRegionDescription, totalDischarges, averageCoveredPayments, averageTotalPayments, averageMedicarePayments);
 
 
