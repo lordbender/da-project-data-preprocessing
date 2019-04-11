@@ -1,7 +1,5 @@
 package unf.services;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVPrinter;
@@ -13,16 +11,14 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.sql.SQLException;
-import java.util.Arrays;
-import java.util.Dictionary;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.Future;
 
 public class CsvService extends BaseService {
-    private static final String SAMPLE_CSV_FILE = "./sample_set_to_test.csv";
-    private static final String TOTAL_CSV_FILE = "./ready_to_test.csv";
+    private static final String TRAINING_SET_CSV_FILE = "./training_set.csv";
+    private static final String TEST_SET_CSV_FILE = "./test_set.csv";
+    private static final String TOTAL_CSV_FILE = "./total_set.csv";
 
     private File file;
 
@@ -46,11 +42,14 @@ public class CsvService extends BaseService {
                 CSVParser parser = new CSVParser(new FileReader(this.file.getAbsoluteFile()), format);
                 try (
                         BufferedWriter writer = Files.newBufferedWriter(Paths.get(TOTAL_CSV_FILE));
-                        BufferedWriter sampleWriter = Files.newBufferedWriter(Paths.get(SAMPLE_CSV_FILE));
+                        BufferedWriter trainingSetWriter = Files.newBufferedWriter(Paths.get(TRAINING_SET_CSV_FILE));
+                        BufferedWriter testSetWriter = Files.newBufferedWriter(Paths.get(TEST_SET_CSV_FILE));
 
                         CSVPrinter csvPrinter = new CSVPrinter(writer, CSVFormat.DEFAULT
                                 .withHeader("class", "providerId", "providerRegionDescription", "totalDischarges", "averageCoveredPayments", "averageTotalPayments", "averageMedicarePayments"));
-                        CSVPrinter csvSamplePrinter = new CSVPrinter(sampleWriter, CSVFormat.DEFAULT
+                        CSVPrinter csvTrainingSetPrinter = new CSVPrinter(trainingSetWriter, CSVFormat.DEFAULT
+                                .withHeader("class", "providerId", "providerRegionDescription", "totalDischarges", "averageCoveredPayments", "averageTotalPayments", "averageMedicarePayments"));
+                        CSVPrinter csvTestSetPrinter = new CSVPrinter(testSetWriter, CSVFormat.DEFAULT
                                 .withHeader("class", "providerId", "providerRegionDescription", "totalDischarges", "averageCoveredPayments", "averageTotalPayments", "averageMedicarePayments"));
                 ) {
                     for (CSVRecord csvRecord : parser) {
@@ -70,8 +69,13 @@ public class CsvService extends BaseService {
                         String averageMedicarePayments = csvRecord.get(11);
 
                         if (map.get(labelOne) < 11) {
-                            csvSamplePrinter.printRecord(labelOne, providerId, providerRegionDescription, totalDischarges, averageCoveredPayments, averageTotalPayments, averageMedicarePayments);
+                            csvTrainingSetPrinter.printRecord(labelOne, providerId, providerRegionDescription, totalDischarges, averageCoveredPayments, averageTotalPayments, averageMedicarePayments);
                         }
+
+                        if (map.get(labelOne) < 101) {
+                            csvTestSetPrinter.printRecord(labelOne, providerId, providerRegionDescription, totalDischarges, averageCoveredPayments, averageTotalPayments, averageMedicarePayments);
+                        }
+
                         csvPrinter.printRecord(labelOne, providerId, providerRegionDescription, totalDischarges, averageCoveredPayments, averageTotalPayments, averageMedicarePayments);
 
                     }
