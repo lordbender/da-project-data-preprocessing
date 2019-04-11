@@ -15,10 +15,15 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.sql.SQLException;
 import java.util.Arrays;
+import java.util.Dictionary;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.Future;
 
 public class CsvService extends BaseService {
-    private static final String SAMPLE_CSV_FILE = "./ready_to_test.csv";
+    private static final String SAMPLE_CSV_FILE = "./sample_set_to_test.csv";
+    private static final String TOTAL_CSV_FILE = "./ready_to_test.csv";
+
     private File file;
 
     public CsvService() {
@@ -32,20 +37,30 @@ public class CsvService extends BaseService {
     public void preProcessDrgData() throws InterruptedException {
         final long startTime = System.currentTimeMillis();
 
+        Map<String, Integer> map = new HashMap<>();
+
         Future<Integer> future = executor.submit(() -> {
             try {
 
                 CSVFormat format = CSVFormat.RFC4180.withHeader().withDelimiter(',');
                 CSVParser parser = new CSVParser(new FileReader(this.file.getAbsoluteFile()), format);
                 try (
-                        BufferedWriter writer = Files.newBufferedWriter(Paths.get(SAMPLE_CSV_FILE));
+                        BufferedWriter writer = Files.newBufferedWriter(Paths.get(TOTAL_CSV_FILE));
+                        BufferedWriter sampleWriter = Files.newBufferedWriter(Paths.get(SAMPLE_CSV_FILE));
 
                         CSVPrinter csvPrinter = new CSVPrinter(writer, CSVFormat.DEFAULT
+                                .withHeader("class", "providerId", "providerRegionDescription", "totalDischarges", "averageCoveredPayments", "averageTotalPayments", "averageMedicarePayments"));
+                        CSVPrinter csvSamplePrinter = new CSVPrinter(sampleWriter, CSVFormat.DEFAULT
                                 .withHeader("class", "providerId", "providerRegionDescription", "totalDischarges", "averageCoveredPayments", "averageTotalPayments", "averageMedicarePayments"));
                 ) {
                     for (CSVRecord csvRecord : parser) {
                         String drgDescription = csvRecord.get(0);
                         String labelOne = drgDescription.split(" ")[0];
+
+                        if (!map.containsKey(labelOne)) {
+                            map.put(labelOne, 0);
+                        }
+                        map.replace(labelOne, map.get(labelOne) + 1);
 
                         String providerId = csvRecord.get(1);
                         String providerRegionDescription = csvRecord.get(7).replaceAll(" ", "").replaceAll("-", "");
@@ -54,8 +69,10 @@ public class CsvService extends BaseService {
                         String averageTotalPayments = csvRecord.get(10);
                         String averageMedicarePayments = csvRecord.get(11);
 
+                        if (map.get(labelOne) < 11) {
+                            csvSamplePrinter.printRecord(labelOne, providerId, providerRegionDescription, totalDischarges, averageCoveredPayments, averageTotalPayments, averageMedicarePayments);
+                        }
                         csvPrinter.printRecord(labelOne, providerId, providerRegionDescription, totalDischarges, averageCoveredPayments, averageTotalPayments, averageMedicarePayments);
-
 
                     }
                     csvPrinter.flush();
