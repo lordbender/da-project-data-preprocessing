@@ -68,19 +68,15 @@ public class CsvService extends BaseService {
                         String averageTotalPayments = csvRecord.get(10);
                         String averageMedicarePayments = csvRecord.get(11);
 
-                        int roundedCovered = ((Integer.parseInt(averageCoveredPayments.replaceAll(",", "").split("\\.")[0]) + 99) / 100 ) * 100;
-                        int roundedTotal = ((Integer.parseInt(averageTotalPayments.replaceAll(",", "").split("\\.")[0]) + 99) / 100 ) * 100;
-                        int roundedCms = ((Integer.parseInt(averageMedicarePayments.replaceAll(",", "").split("\\.")[0]) + 99) / 100 ) * 100;
-
                         if (map.get(labelOne) < 11) {
-                            csvTrainingSetPrinter.printRecord(labelOne, providerId, providerRegionDescription, totalDischarges, roundedCovered, roundedTotal, roundedCms);
+                            csvTrainingSetPrinter.printRecord(labelOne, providerId, providerRegionDescription, totalDischarges, averageCoveredPayments.replaceAll(",", ""), averageTotalPayments.replaceAll(",", ""), averageMedicarePayments.replaceAll(",", ""));
                         }
 
                         if (map.get(labelOne)  > 11 && map.get(labelOne) < 101) {
-                            csvTestSetPrinter.printRecord(labelOne, providerId, providerRegionDescription, totalDischarges, roundedCovered, roundedTotal, roundedCms);
+                            csvTestSetPrinter.printRecord(labelOne, providerId, providerRegionDescription, totalDischarges, averageCoveredPayments.replaceAll(",", ""), averageTotalPayments.replaceAll(",", ""), averageMedicarePayments.replaceAll(",", ""));
                         }
 
-                        csvPrinter.printRecord(labelOne, providerId, providerRegionDescription, totalDischarges, roundedCovered, roundedTotal, roundedCms);
+                        csvPrinter.printRecord(labelOne, providerId, providerRegionDescription, totalDischarges, averageCoveredPayments.replaceAll(",", ""), averageTotalPayments.replaceAll(",", ""), averageMedicarePayments.replaceAll(",", ""));
 
                     }
                     csvPrinter.flush();
