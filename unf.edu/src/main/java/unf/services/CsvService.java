@@ -11,14 +11,17 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Future;
 
 public class CsvService extends BaseService {
-    private static final String TRAINING_SET_CSV_FILE = "./training_set.csv";
-    private static final String TEST_SET_CSV_FILE = "./test_set.csv";
-    private static final String TOTAL_CSV_FILE = "./total_set.csv";
+    private static final String TRAINING_SET_CSV_FILE = "./csv/training_set.csv";
+    private static final String TEST_SET_CSV_FILE = "./csv/test_set.csv";
+    private static final String TOTAL_CSV_FILE = "./csv/total_set.csv";
+    private static final String SINGLE_DRG_CSV_FILE = "./csv/by-drg/drg_{0}_set.csv";
 
     private File file;
 
@@ -33,9 +36,12 @@ public class CsvService extends BaseService {
     public void preProcessDrgData() throws InterruptedException {
         final long startTime = System.currentTimeMillis();
 
-        Map<String, Integer> map = new HashMap<>();
 
         Future<Integer> future = executor.submit(() -> {
+
+            Map<String, Integer> map = new HashMap<>();
+            Map<String, List<CSVRecord>> dataFrames = new HashMap<>();
+
             try {
 
                 CSVFormat format = CSVFormat.RFC4180.withHeader().withDelimiter(',');
@@ -50,16 +56,22 @@ public class CsvService extends BaseService {
                         CSVPrinter csvTrainingSetPrinter = new CSVPrinter(trainingSetWriter, CSVFormat.DEFAULT
                                 .withHeader("class", "providerId", "providerRegionDescription", "totalDischarges", "averageCoveredPayments", "averageTotalPayments", "averageMedicarePayments"));
                         CSVPrinter csvTestSetPrinter = new CSVPrinter(testSetWriter, CSVFormat.DEFAULT
-                                .withHeader("class", "providerId", "providerRegionDescription", "totalDischarges", "averageCoveredPayments", "averageTotalPayments", "averageMedicarePayments"));
+                                .withHeader("class", "providerId", "providerRegionDescription", "totalDischarges", "averageCoveredPayments", "averageTotalPayments", "averageMedicarePayments"))
                 ) {
+
                     for (CSVRecord csvRecord : parser) {
+
+
                         String drgDescription = csvRecord.get(0);
                         String labelOne = "DRG" + drgDescription.split(" ")[0];
-
+                        if (!dataFrames.containsKey(labelOne)) {
+                            dataFrames.put(labelOne, new ArrayList<CSVRecord>());
+                        }
                         if (!map.containsKey(labelOne)) {
                             map.put(labelOne, 0);
                         }
                         map.replace(labelOne, map.get(labelOne) + 1);
+                        dataFrames.get(labelOne).add(csvRecord);
 
                         String providerId = "PID" + csvRecord.get(1);
                         String providerRegionDescription = "RID" + csvRecord.get(7).replaceAll(" ", "").replaceAll("-", "");
@@ -68,11 +80,12 @@ public class CsvService extends BaseService {
                         String averageTotalPayments = csvRecord.get(10);
                         String averageMedicarePayments = csvRecord.get(11);
 
+
                         if (map.get(labelOne) < 11) {
                             csvTrainingSetPrinter.printRecord(labelOne, providerId, providerRegionDescription, totalDischarges, averageCoveredPayments.replaceAll(",", ""), averageTotalPayments.replaceAll(",", ""), averageMedicarePayments.replaceAll(",", ""));
                         }
 
-                        if (map.get(labelOne)  > 11 && map.get(labelOne) < 101) {
+                        if (map.get(labelOne) > 11 && map.get(labelOne) < 101) {
                             csvTestSetPrinter.printRecord(labelOne, providerId, providerRegionDescription, totalDischarges, averageCoveredPayments.replaceAll(",", ""), averageTotalPayments.replaceAll(",", ""), averageMedicarePayments.replaceAll(",", ""));
                         }
 
@@ -80,6 +93,33 @@ public class CsvService extends BaseService {
 
                     }
                     csvPrinter.flush();
+                    csvTestSetPrinter.flush();
+                    csvTrainingSetPrinter.flush();
+                }
+
+                for (String r : dataFrames.keySet()) {
+                    List<CSVRecord> records = dataFrames.get(r);
+                    String helper = "DRG" + records.get(0).get(0).split(" ")[0];
+                    try (BufferedWriter drgSetWriter = Files.newBufferedWriter(Paths.get(SINGLE_DRG_CSV_FILE.replace("{0}", helper)));
+
+                         CSVPrinter csvPrinter = new CSVPrinter(drgSetWriter, CSVFormat.DEFAULT
+                                 .withHeader("class", "providerId", "providerRegionDescription", "totalDischarges", "averageCoveredPayments", "averageTotalPayments", "averageMedicarePayments"));
+                    ) {
+                        for (CSVRecord drgGroupRow : records) {
+                            String drgDescription = drgGroupRow.get(0);
+                            String labelOne = "DRG" + drgDescription.split(" ")[0];
+
+                            String providerId = "PID" + drgGroupRow.get(1);
+                            String providerRegionDescription = "RID" + drgGroupRow.get(7).replaceAll(" ", "").replaceAll("-", "");
+                            String totalDischarges = drgGroupRow.get(8);
+                            String averageCoveredPayments = drgGroupRow.get(9).replaceAll(",", "");
+                            String averageTotalPayments = drgGroupRow.get(10);
+                            String averageMedicarePayments = drgGroupRow.get(11);
+
+                            csvPrinter.printRecord(labelOne, providerId, providerRegionDescription, totalDischarges, averageCoveredPayments.replaceAll(",", ""), averageTotalPayments.replaceAll(",", ""), averageMedicarePayments.replaceAll(",", ""));
+
+                        }
+                    }
                 }
 
             } catch (Exception e1) {
