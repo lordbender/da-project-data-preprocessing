@@ -28,7 +28,6 @@ public class CsvService extends BaseService {
     public CsvService() {
         ClassLoader classLoader = getClass().getClassLoader();
         this.file = new File(classLoader.getResource("CMS_DRG.csv").getFile());
-
     }
 
 
