@@ -1,4 +1,4 @@
-class,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
+drg,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
 DRG682,PID10065,RIDALBirmingham,23,13330.43,9145.82,8126.17
 DRG682,PID30023,RIDAZPhoenix,21,53048.19,18704.14,17255.28
 DRG682,PID40010,RIDARSpringdale,16,26258.50,8885.75,8186.25

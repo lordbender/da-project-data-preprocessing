@@ -1,4 +1,4 @@
-class,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
+drg,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
 DRG301,PID100093,RIDFLPensacola,11,22168.00,3556.90,2642.36
 DRG301,PID140030,RIDILElgin,18,13976.00,4123.50,3251.94
 DRG301,PID10001,RIDALDothan,17,10889.05,4174.35,2380.35

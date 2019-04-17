@@ -1,4 +1,4 @@
-class,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
+drg,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
 DRG552,PID50128,RIDCASanDiego,14,26610.85,5970.57,5007.14
 DRG552,PID50764,RIDCARedding,29,36127.31,6305.17,5219.93
 DRG552,PID60001,RIDCOGreeley,48,20543.02,5454.12,4252.91

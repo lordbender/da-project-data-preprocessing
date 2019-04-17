@@ -1,4 +1,4 @@
-class,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
+drg,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
 DRG948,PID120007,RIDHIHonolulu,13,21434.23,5659.69,3154.46
 DRG948,PID140080,RIDILEvanston,32,24563.81,5973.59,5217.53
 DRG948,PID140082,RIDILChicago,24,20625.41,7533.41,4982.20

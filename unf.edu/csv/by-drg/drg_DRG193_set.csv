@@ -1,4 +1,4 @@
-class,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
+drg,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
 DRG193,PID100007,RIDFLOrlando,309,56522.28,10825.15,8759.08
 DRG193,PID100053,RIDFLMiami,34,84811.14,12814.58,12161.02
 DRG193,PID100054,RIDFLPensacola,20,69529.45,7300.55,6626.15

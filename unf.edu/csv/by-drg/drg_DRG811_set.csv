@@ -1,4 +1,4 @@
-class,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
+drg,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
 DRG811,PID280040,RIDNEOmaha,12,19876.75,6936.50,6192.50
 DRG811,PID360098,RIDOHCleveland,20,30030.70,6657.75,5742.85
 DRG811,PID390091,RIDPAErie,15,11300.80,6436.73,6212.46

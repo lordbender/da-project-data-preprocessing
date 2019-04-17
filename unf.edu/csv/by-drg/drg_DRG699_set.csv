@@ -1,4 +1,4 @@
-class,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
+drg,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
 DRG699,PID100006,RIDFLOrlando,32,30377.06,6735.00,5987.28
 DRG699,PID10001,RIDALDothan,17,17647.47,5443.00,4912.17
 DRG699,PID10011,RIDALBirmingham,11,9976.81,5451.09,4842.36

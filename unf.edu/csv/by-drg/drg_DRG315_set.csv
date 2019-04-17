@@ -1,4 +1,4 @@
-class,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
+drg,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
 DRG315,PID240047,RIDMNDuluth,13,15372.00,6401.92,5712.69
 DRG315,PID520021,RIDWIMilwaukee,11,19702.90,5756.00,4938.54
 DRG315,PID10001,RIDALDothan,18,26014.66,5787.22,4225.66

@@ -1,4 +1,4 @@
-class,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
+drg,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
 DRG870,PID50077,RIDCASanDiego,49,218492.69,49290.26,47465.63
 DRG870,PID10001,RIDALDothan,24,129694.04,33048.20,32095.75
 DRG870,PID10023,RIDALMontgomery,15,110826.26,37376.20,36927.66

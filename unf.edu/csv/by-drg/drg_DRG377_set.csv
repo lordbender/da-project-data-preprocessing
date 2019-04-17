@@ -1,4 +1,4 @@
-class,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
+drg,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
 DRG377,PID50069,RIDCAOrangeCounty,30,70727.06,13670.20,13048.70
 DRG377,PID50077,RIDCASanDiego,44,60983.54,15112.50,14491.50
 DRG377,PID50300,RIDCASanBernardino,20,39692.60,12850.00,12290.40

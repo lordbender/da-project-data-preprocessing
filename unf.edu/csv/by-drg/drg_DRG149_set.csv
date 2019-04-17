@@ -1,4 +1,4 @@
-class,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
+drg,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
 DRG149,PID10023,RIDALMontgomery,14,15280.28,4295.42,3131.21
 DRG149,PID10024,RIDALMontgomery,12,12631.50,3618.00,2680.00
 DRG149,PID10038,RIDALBirmingham,11,19866.81,3311.45,2491.09

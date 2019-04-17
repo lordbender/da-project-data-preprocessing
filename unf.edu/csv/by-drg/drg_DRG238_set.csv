@@ -1,4 +1,4 @@
-class,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
+drg,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
 DRG238,PID70033,RIDCTNewHaven,32,70117.68,25146.03,22800.37
 DRG238,PID420087,RIDSCCharleston,32,69252.12,17512.53,16596.75
 DRG238,PID10001,RIDALDothan,62,54708.17,17711.45,16083.06

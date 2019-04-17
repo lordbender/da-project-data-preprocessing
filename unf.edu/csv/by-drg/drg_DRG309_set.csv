@@ -1,4 +1,4 @@
-class,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
+drg,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
 DRG309,PID50039,RIDCAChico,52,39929.21,5750.69,4822.00
 DRG309,PID250093,RIDTNMemphis,13,15975.92,4449.00,3929.00
 DRG309,PID360010,RIDOHCanton,24,7262.79,4481.66,3681.16

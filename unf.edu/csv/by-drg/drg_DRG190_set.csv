@@ -1,4 +1,4 @@
-class,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
+drg,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
 DRG190,PID100053,RIDFLMiami,48,74033.39,10502.20,9684.79
 DRG190,PID10001,RIDALDothan,73,26582.76,6738.57,5957.19
 DRG190,PID10005,RIDALBirmingham,85,16319.81,6775.05,5898.75

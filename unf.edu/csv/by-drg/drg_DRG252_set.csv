@@ -1,4 +1,4 @@
-class,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
+drg,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
 DRG252,PID310052,RIDNJCamden,18,135003.38,18752.05,17702.22
 DRG252,PID330399,RIDNYBronx,11,43369.45,41437.72,40880.45
 DRG252,PID390063,RIDPAErie,37,116365.08,29096.18,13655.27

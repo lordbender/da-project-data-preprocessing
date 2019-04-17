@@ -1,4 +1,4 @@
-class,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
+drg,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
 DRG194,PID50242,RIDCASantaCruz,96,60386.84,9175.01,8250.46
 DRG194,PID70027,RIDCTHartford,69,16737.85,6583.78,5606.82
 DRG194,PID100061,RIDFLMiami,32,33432.12,7389.15,6414.65

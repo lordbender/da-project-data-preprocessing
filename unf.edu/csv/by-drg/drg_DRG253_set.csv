@@ -1,4 +1,4 @@
-class,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
+drg,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
 DRG253,PID170192,RIDKSWichita,22,33610.81,12415.00,11497.54
 DRG253,PID390168,RIDPAPittsburgh,21,62622.95,14075.66,13381.00
 DRG253,PID10001,RIDALDothan,49,64586.71,13576.61,12723.79

@@ -1,4 +1,4 @@
-class,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
+drg,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
 DRG379,PID10006,RIDALBirmingham,17,17413.41,4128.11,2592.47
 DRG379,PID10010,RIDALHuntsville,11,5725.63,3846.00,2600.00
 DRG379,PID10011,RIDALBirmingham,23,13277.91,4075.00,2896.69

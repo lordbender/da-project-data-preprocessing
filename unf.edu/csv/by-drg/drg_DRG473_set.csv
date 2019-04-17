@@ -1,4 +1,4 @@
-class,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
+drg,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
 DRG473,PID140127,RIDILBloomington,12,53258.00,21171.00,9419.08
 DRG473,PID390133,RIDPAAllentown,22,80482.18,14250.50,11845.50
 DRG473,PID420087,RIDSCCharleston,33,40148.93,11489.57,10468.24

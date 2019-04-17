@@ -1,4 +1,4 @@
-class,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
+drg,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
 DRG313,PID220108,RIDMABoston,43,6760.53,3547.00,2633.04
 DRG313,PID10001,RIDALDothan,36,19540.55,3428.58,2093.38
 DRG313,PID10006,RIDALBirmingham,13,20241.84,3849.76,1704.53

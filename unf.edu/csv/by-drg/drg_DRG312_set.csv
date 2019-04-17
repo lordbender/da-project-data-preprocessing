@@ -1,4 +1,4 @@
-class,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
+drg,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
 DRG312,PID30030,RIDAZPhoenix,14,21241.14,5430.28,4550.00
 DRG312,PID30036,RIDAZMesa,31,33570.51,5010.19,3390.45
 DRG312,PID40020,RIDARJonesboro,71,8029.11,4420.85,3454.22

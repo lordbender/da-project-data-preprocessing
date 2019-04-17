@@ -1,4 +1,4 @@
-class,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
+drg,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
 DRG176,PID10001,RIDALDothan,33,23680.30,6020.27,5338.09
 DRG176,PID10006,RIDALBirmingham,14,23228.42,5599.57,4633.85
 DRG176,PID10010,RIDALHuntsville,12,12814.00,5446.41,4977.41

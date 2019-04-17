@@ -1,4 +1,4 @@
-class,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
+drg,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
 DRG254,PID200009,RIDMEPortland,75,24496.86,12779.26,9104.00
 DRG254,PID420087,RIDSCCharleston,18,36492.50,9628.11,7689.22
 DRG254,PID10001,RIDALDothan,13,45614.84,8932.53,7756.69

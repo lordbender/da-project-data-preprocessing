@@ -1,4 +1,4 @@
-class,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
+drg,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
 DRG291,PID110028,RIDGAAugusta,163,31462.46,9090.06,8390.92
 DRG291,PID110091,RIDGAAtlanta,89,24585.56,9543.67,8951.86
 DRG291,PID110092,RIDGAMacon,25,16207.48,9052.08,8504.12

@@ -1,4 +1,4 @@
-class,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
+drg,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
 DRG536,PID160029,RIDIAIowaCity,14,11878.92,3922.64,2961.50
 DRG536,PID230244,RIDMIDearborn,14,9975.85,5327.35,4442.50
 DRG536,PID310112,RIDNJCamden,12,32304.91,4365.00,3424.33

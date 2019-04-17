@@ -1,4 +1,4 @@
-class,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
+drg,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
 DRG191,PID220080,RIDMABoston,49,10720.44,6626.73,5795.16
 DRG191,PID330004,RIDNYAlbany,61,24863.55,7104.18,6384.63
 DRG191,PID350015,RIDNDBismarck,27,9740.11,6105.70,5083.92

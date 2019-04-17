@@ -1,4 +1,4 @@
-class,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
+drg,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
 DRG189,PID100248,RIDFLClearwater,29,44885.89,7323.79,6695.27
 DRG189,PID220020,RIDMABoston,21,16982.00,9114.33,8386.47
 DRG189,PID220119,RIDMABoston,12,43313.50,10454.91,9991.16

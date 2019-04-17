@@ -1,4 +1,4 @@
-class,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
+drg,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
 DRG064,PID10001,RIDALDothan,84,38820.39,10260.21,9167.08
 DRG064,PID10005,RIDALBirmingham,13,22946.38,10562.23,9870.53
 DRG064,PID10006,RIDALBirmingham,32,45393.21,10439.46,8606.93

@@ -1,4 +1,4 @@
-class,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
+drg,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
 DRG638,PID330004,RIDNYAlbany,21,20006.57,6048.85,5177.85
 DRG638,PID10001,RIDALDothan,32,21175.81,4678.43,4047.68
 DRG638,PID10005,RIDALBirmingham,12,9719.16,4863.75,4203.41

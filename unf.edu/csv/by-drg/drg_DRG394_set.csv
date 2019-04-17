@@ -1,4 +1,4 @@
-class,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
+drg,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
 DRG394,PID340114,RIDNCRaleigh,55,19630.45,5849.18,4504.18
 DRG394,PID520160,RIDWIAppleton,12,8879.58,5618.83,4653.58
 DRG394,PID50006,RIDCARedding,12,47774.33,7678.91,6403.33

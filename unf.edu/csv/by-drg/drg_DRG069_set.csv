@@ -1,4 +1,4 @@
-class,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
+drg,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
 DRG069,PID10047,RIDALMontgomery,32,5062.59,4277.31,3386.18
 DRG069,PID10049,RIDALDothan,17,22034.35,3758.00,2674.82
 DRG069,PID10054,RIDALHuntsville,20,23957.70,5708.65,2796.80

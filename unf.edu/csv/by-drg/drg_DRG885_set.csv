@@ -1,4 +1,4 @@
-class,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
+drg,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
 DRG885,PID10085,RIDALHuntsville,236,9930.83,4986.83,4219.28
 DRG885,PID10092,RIDALTuscaloosa,38,18125.89,5505.13,4347.39
 DRG885,PID10104,RIDALBirmingham,228,35241.60,6163.48,4283.56

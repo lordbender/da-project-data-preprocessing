@@ -1,4 +1,4 @@
-class,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
+drg,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
 DRG460,PID70029,RIDCTHartford,11,87622.00,24542.09,23521.72
 DRG460,PID70033,RIDCTNewHaven,57,76670.15,32285.29,24279.63
 DRG460,PID10001,RIDALDothan,88,79955.22,21572.10,20307.47

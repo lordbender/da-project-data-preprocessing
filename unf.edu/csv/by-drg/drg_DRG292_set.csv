@@ -1,4 +1,4 @@
-class,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
+drg,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
 DRG292,PID50013,RIDCANapa,26,53579.19,9367.76,8805.46
 DRG292,PID50014,RIDCASacramento,33,35138.90,8525.81,7707.39
 DRG292,PID60028,RIDCODenver,25,33084.32,6852.68,5644.16

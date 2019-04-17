@@ -1,4 +1,4 @@
-class,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
+drg,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
 DRG482,PID10011,RIDALBirmingham,22,22673.63,8645.00,6990.59
 DRG482,PID10012,RIDALBirmingham,14,39732.50,8061.50,7026.35
 DRG482,PID10016,RIDALBirmingham,11,34373.18,8496.00,7684.36

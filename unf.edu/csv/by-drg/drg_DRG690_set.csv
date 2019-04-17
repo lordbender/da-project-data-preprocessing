@@ -1,4 +1,4 @@
-class,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
+drg,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
 DRG690,PID140011,RIDMOSt.Louis,129,12852.48,4378.23,3664.62
 DRG690,PID200008,RIDMEPortland,30,11979.10,4586.80,3560.36
 DRG690,PID390112,RIDPAJohnstown,13,8147.15,4098.84,3233.00

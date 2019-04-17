@@ -1,4 +1,4 @@
-class,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
+drg,providerId,providerRegionDescription,totalDischarges,averageCoveredPayments,averageTotalPayments,averageMedicarePayments
 DRG602,PID10006,RIDALBirmingham,11,36261.90,7798.90,7181.45
 DRG602,PID40020,RIDARJonesboro,17,14580.94,8634.35,7690.76
 DRG602,PID50168,RIDCAOrangeCounty,15,50997.86,9401.60,8504.53
