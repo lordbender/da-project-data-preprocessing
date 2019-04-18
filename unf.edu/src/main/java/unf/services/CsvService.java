@@ -29,7 +29,6 @@ public class CsvService extends BaseService {
         this.regionMajorOrderFile = new File(Objects.requireNonNull(classLoader.getResource("CMS_DRG_SORTED_BY_REGION.csv")).getFile());
     }
 
-
     public void preProcessDrgData() throws InterruptedException {
 
         Future<Integer> future1 = processDRGMajorOrder();
@@ -47,7 +46,6 @@ public class CsvService extends BaseService {
     private Future<Integer> processRegionMajorOrder() {
         return executor.submit(() -> {
 
-            Map<String, Integer> map = new HashMap<>();
             Map<String, List<CSVRecord>> dataFrames = new HashMap<>();
 
             try {
