@@ -1,0 +1,75 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.functions.Dl4jMlpClassifier -S 1 -cache-mode MEMORY -early-stopping "weka.dl4j.earlystopping.EarlyStopping -maxEpochsNoImprovement 0 -valPercentage 0.0" -normalization "Standardize training data" -iterator "weka.dl4j.iterators.instance.DefaultInstanceIterator -bs 1" -iteration-listener "weka.dl4j.listener.EpochListener -eval true -n 5" -layer "weka.dl4j.layers.OutputLayer -lossFn \"weka.dl4j.lossfunctions.LossMCXENT \" -nOut 0 -activation \"weka.dl4j.activations.ActivationSoftmax \" -name \"Output layer\"" -logConfig "weka.core.LogConfiguration -append true -dl4jLogLevel WARN -logFile C:\\Users\\seanw\\wekafiles\\wekaDeeplearning4j.log -nd4jLogLevel INFO -wekaDl4jLogLevel INFO" -config "weka.dl4j.NeuralNetConfiguration -biasInit 0.0 -biasUpdater \"weka.dl4j.updater.Sgd -lr 0.001 -lrSchedule \\\"weka.dl4j.schedules.ConstantSchedule -scheduleType EPOCH\\\"\" -dist \"weka.dl4j.distribution.Disabled \" -dropout \"weka.dl4j.dropout.Disabled \" -gradientNormalization None -gradNormThreshold 1.0 -l1 NaN -l2 NaN -minimize -algorithm STOCHASTIC_GRADIENT_DESCENT -updater \"weka.dl4j.updater.Adam -beta1MeanDecay 0.9 -beta2VarDecay 0.999 -epsilon 1.0E-8 -lr 0.001 -lrSchedule \\\"weka.dl4j.schedules.ConstantSchedule -scheduleType EPOCH\\\"\" -weightInit XAVIER -weightNoise \"weka.dl4j.weightnoise.Disabled \"" -numEpochs 10 -queueSize 0 -zooModel "weka.dl4j.zoo.CustomNet "
+Relation:     region_RIDCALosAngeles_set-weka.filters.unsupervised.attribute.Discretize-B10-M-1.0-R5,6,7-precision6-weka.filters.unsupervised.attribute.Remove-R2,4-weka.filters.unsupervised.attribute.Discretize-B10-M-1.0-Rfirst-last-precision6-weka.filters.unsupervised.attribute.Remove-R5-weka.filters.unsupervised.attribute.Remove-R2-weka.filters.unsupervised.attribute.Discretize-B10-M-1.0-Rfirst-last-precision6
+Instances:    3653
+Attributes:   3
+              drg
+              averageCoveredPayments
+              averageTotalPayments
+Test mode:    evaluate on training data
+
+=== Classifier model (full training set) ===
+
+Network Configuration: 
+NeuralNetConfiguration(weightInit=XAVIER, biasInit=0.0, dist=weka.dl4j.distribution.Disabled@66, l1=NaN, l2=NaN, dropout=Disabled(), updater=Updater(backend=Adam(learningRate=0.001, learningRateSchedule=ConstantSchedule.ConstantScheduleImpl(value=0.001), beta1=0.9, beta2=0.999, epsilon=1.0E-8), learningRateSchedule=ConstantSchedule(), learningRate=0.001), biasUpdater=Updater(backend=Sgd(learningRate=0.001, learningRateSchedule=ConstantSchedule.ConstantScheduleImpl(value=0.001)), learningRateSchedule=ConstantSchedule(), learningRate=0.001), miniBatch=true, seed=0, optimizationAlgo=STOCHASTIC_GRADIENT_DESCENT, useDropConnect=false, weightNoise=Disabled(), minimize=true, pretrain=false, gradientNormalization=None, gradientNormalizationThreshold=1.0, inferenceWorkspaceMode=ENABLED, trainingWorkspaceMode=ENABLED)
+Model Summary: 
+
+==========================================================================================================================================================================================================================================================
+VertexName (VertexType)                 nIn,nOut  TotalParams ParamsShape                             Vertex Inputs                 
+==========================================================================================================================================================================================================================================================
+input (InputVertex)                     -,-       -           -                                       -                             
+Output layer (OutputLayer)              110,10    1110        W:{110,10}, b:{1,10}                    [input]                       
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+            Total Parameters:  1110
+        Trainable Parameters:  1110
+           Frozen Parameters:  0
+==========================================================================================================================================================================================================================================================
+
+
+Time taken to build model: 15.26 seconds
+
+=== Evaluation on training set ===
+
+Time taken to test model on training data: 0.33 seconds
+
+=== Summary ===
+
+Correctly Classified Instances        3179               87.0244 %
+Incorrectly Classified Instances       474               12.9756 %
+Kappa statistic                          0.7137
+Mean absolute error                      0.0339
+Root mean squared error                  0.1332
+Relative absolute error                 36.9151 %
+Root relative squared error             62.2213 %
+Total Number of Instances             3653     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.951    0.136    0.944      0.951    0.947      0.820    0.977     0.990     '(-inf-13567.052]'
+                 0.781    0.067    0.745      0.781    0.763      0.702    0.953     0.817     '(13567.052-23593.264]'
+                 0.490    0.011    0.661      0.490    0.563      0.553    0.967     0.624     '(23593.264-33619.476]'
+                 0.260    0.006    0.476      0.260    0.336      0.342    0.983     0.458     '(33619.476-43645.688]'
+                 0.788    0.020    0.423      0.788    0.550      0.567    0.988     0.468     '(43645.688-53671.9]'
+                 0.094    0.000    0.750      0.094    0.167      0.263    0.992     0.443     '(53671.9-63698.112]'
+                 0.000    0.000    ?          0.000    ?          ?        0.991     0.184     '(63698.112-73724.324]'
+                 1.000    0.000    1.000      1.000    1.000      1.000    1.000     1.000     '(73724.324-83750.536]'
+                 0.667    0.000    1.000      0.667    0.800      0.816    1.000     0.778     '(83750.536-93776.748]'
+                 0.000    0.000    ?          0.000    ?          ?        0.999     0.111     '(93776.748-inf)'
+Weighted Avg.    0.870    0.110    ?          0.870    ?          ?        0.972     0.912     
+
+=== Confusion Matrix ===
+
+    a    b    c    d    e    f    g    h    i    j   <-- classified as
+ 2453  126    0    0    0    0    0    0    0    0 |    a = '(-inf-13567.052]'
+  141  574   20    0    0    0    0    0    0    0 |    b = '(13567.052-23593.264]'
+    5   66   74    4    2    0    0    0    0    0 |    c = '(23593.264-33619.476]'
+    0    3   18   20   36    0    0    0    0    0 |    d = '(33619.476-43645.688]'
+    0    1    0   12   52    1    0    0    0    0 |    e = '(43645.688-53671.9]'
+    0    0    0    5   24    3    0    0    0    0 |    f = '(53671.9-63698.112]'
+    0    0    0    1    7    0    0    0    0    0 |    g = '(63698.112-73724.324]'
+    0    0    0    0    0    0    0    1    0    0 |    h = '(73724.324-83750.536]'
+    0    0    0    0    1    0    0    0    2    0 |    i = '(83750.536-93776.748]'
+    0    0    0    0    1    0    0    0    0    0 |    j = '(93776.748-inf)'
+
